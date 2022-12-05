@@ -11,9 +11,6 @@ let weather = {
         const { icon, description } = data.weather[0];
         const { temp, humidity }  = data.main;
         const { speed } = data.wind;
-
-
-        console.log(name, icon, description, temp, speed);
         document.querySelector(".city").innerText = "The Weather in " + name;
         document.querySelector(".icon").src = "http://openweathermap.org/img/wn/" + icon + ".png";
         document.querySelector(".description").innerText = description;
@@ -28,4 +25,10 @@ let weather = {
 
 document.querySelector(".search button").addEventListener("click", function(){
         weather.search();
+});
+
+document.querySelector(".search-bar").addEventListener("keyup", function(e){
+    if (e.key === "Enter") {
+        weather.search();
+    }
 });
